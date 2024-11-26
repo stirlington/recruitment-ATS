@@ -1,4 +1,4 @@
-# Recruitment CRM/ATS Dashboard
+# Recruitment Dashboard
 
 This is a Streamlit-based recruitment dashboard that provides an overview of key recruitment metrics such as invoiced amounts, candidate sources, calendar events breakdowns, and more.
 
