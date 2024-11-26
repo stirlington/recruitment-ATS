@@ -1,28 +1,25 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
-import requests  # Import requests to make API calls
 
-# Function to fetch data from ATS API
-def fetch_ats_data():
-    try:
-        # Replace with your actual ATS API endpoint
-        response = requests.get("https://api.yourats.com/data")
-        response.raise_for_status()  # Raise an error for bad responses
-        return response.json()  # Assuming the API returns JSON data
-    except requests.exceptions.ConnectionError:
-        st.error("Failed to connect to the API. Please check the API URL and your internet connection.")
-    except requests.exceptions.Timeout:
-        st.error("The request to the API timed out. Please try again later.")
-    except requests.exceptions.RequestException as e:
-        st.error(f"An error occurred while fetching data: {e}")
-    return None
+# Simulated data (replace with real data when available)
+def get_simulated_data():
+    return {
+        "invoiced_amount": 50000,
+        "offers_made": 30,
+        "conversion_rate": 75,
+        "contacted_candidates": 32,
+        "slipping_candidates": 68,
+        "time_to_first_contact": 4,
+        "career_site_views": 1451,
+        "applied_candidates": 178,
+    }
 
-# Fetch data from ATS
-ats_data = fetch_ats_data()
+# Fetch simulated data
+ats_data = get_simulated_data()
 
 if ats_data:
-    # Extract relevant data from the fetched data
+    # Extract relevant data from the simulated data
     invoiced_amount = ats_data['invoiced_amount']
     offers_made = ats_data['offers_made']
     conversion_rate = ats_data['conversion_rate']
@@ -35,7 +32,7 @@ if ats_data:
     # Candidate sources over time (bar chart)
     categories = ['Applied', 'Email', 'Sourced', 'Added manually']
     days = np.arange(1, 31)
-    candidates_per_origin = np.random.randint(5, 30, (4, len(days)))  # Replace with actual data if available
+    candidates_per_origin = np.random.randint(5, 30, (4, len(days)))  # Simulated data
 
     # Calendar and email breakdowns (pie charts)
     calendar_labels = ['On-site interviews', 'Phone interviews', 'Meetings']
