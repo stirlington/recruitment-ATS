@@ -10,9 +10,13 @@ def fetch_ats_data():
         response = requests.get("https://api.yourats.com/data")
         response.raise_for_status()  # Raise an error for bad responses
         return response.json()  # Assuming the API returns JSON data
+    except requests.exceptions.ConnectionError:
+        st.error("Failed to connect to the API. Please check the API URL and your internet connection.")
+    except requests.exceptions.Timeout:
+        st.error("The request to the API timed out. Please try again later.")
     except requests.exceptions.RequestException as e:
         st.error(f"An error occurred while fetching data: {e}")
-        return None
+    return None
 
 # Fetch data from ATS
 ats_data = fetch_ats_data()
