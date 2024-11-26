@@ -19,15 +19,18 @@ time_to_first_contact = 4
 career_site_views = 1451
 applied_candidates = 178
 
+# Candidate sources over time (bar chart)
 categories = ['Applied', 'Email', 'Sourced', 'Added manually']
 days = np.arange(1, 31)
 candidates_per_origin = np.random.randint(5, 30, (4, len(days)))
 
+# Calendar and email breakdowns (pie charts)
 calendar_labels = ['On-site interviews', 'Phone interviews', 'Meetings']
 calendar_sizes = [40, 35, 25]
 email_labels = ['Sent', 'Received']
 email_sizes = [60, 40]
 
+# Drop-off and proceed rates (progress bars)
 drop_off_rate = 93 / 185
 proceed_rate = 59 / 185
 
