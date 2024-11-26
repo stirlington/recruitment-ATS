@@ -5,12 +5,13 @@ import requests  # Import requests to make API calls
 
 # Function to fetch data from ATS API
 def fetch_ats_data():
-    # Replace with your actual ATS API endpoint
-    response = requests.get("https://api.yourats.com/data")
-    if response.status_code == 200:
+    try:
+        # Replace with your actual ATS API endpoint
+        response = requests.get("https://api.yourats.com/data")
+        response.raise_for_status()  # Raise an error for bad responses
         return response.json()  # Assuming the API returns JSON data
-    else:
-        st.error("Failed to fetch data from ATS")
+    except requests.exceptions.RequestException as e:
+        st.error(f"An error occurred while fetching data: {e}")
         return None
 
 # Fetch data from ATS
