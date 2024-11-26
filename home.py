@@ -2,8 +2,10 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Page configuration
 st.set_page_config(page_title="Recruitment Dashboard", layout="wide")
 
+# Title and description
 st.title("Recruitment Dashboard")
 st.markdown("### Overview of key recruitment metrics for the last 30 days")
 
@@ -29,6 +31,7 @@ email_sizes = [60, 40]
 drop_off_rate = 93 / 185
 proceed_rate = 59 / 185
 
+# Layout: Last 30 Days Section
 st.markdown("#### Last 30 Days")
 col1, col2, col3 = st.columns([2, 2, 1])
 
@@ -57,6 +60,7 @@ with col3:
     st.metric(label="Career Site Views", value=career_site_views)
     st.metric(label="Applied Candidates", value=applied_candidates)
 
+# Calendar Events and Emails Breakdown Section
 st.markdown("---")
 col4, col5 = st.columns(2)
 
@@ -74,6 +78,7 @@ with col5:
     ax3.axis('equal')
     st.pyplot(fig3)
 
+# Drop-off and Proceed Rates Section
 st.markdown("---")
 st.subheader("All Time Metrics")
 
